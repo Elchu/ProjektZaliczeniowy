@@ -1,0 +1,58 @@
+﻿@model SpeedRacing.Models.Blog.Kategorie
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Szczegóły Kategorii: @Model.Nazwa</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrzyjaznaNazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrzyjaznaNazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataUtworzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataUtworzenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzyOpublikowany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzyOpublikowany)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.KategorieId }) |
+    @Html.ActionLink("Wróć do listy", "Index")
+</p>

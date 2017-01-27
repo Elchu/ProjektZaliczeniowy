@@ -1,0 +1,199 @@
+﻿@model SpeedRacing.Models.IndexViewModel
+@{
+    ViewBag.Title = "Zarządzaj";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Panel administracyjny</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="@Url.Action("DaneUzytkownika", "Naprawa")" class="thumbnail text-center">
+                    <img src="@Url.Content("~/images/ManageIco/user_group_new.png")" alt="Uzupełnij profil">
+                    <div class="caption">
+                        <h5>Uzupełnij profil</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="@Url.Action("DaneSamochodu", "Naprawa")" class="thumbnail text-center">
+                    <img src="@Url.Content("~/images/ManageIco/37-car-repair.png")" alt="Dodaj samochód">
+                    <div class="caption">
+                        <h5>Dodaj samochód</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="@Url.Action("ListaSamochodow", "Naprawa")" class="thumbnail text-center">
+                    <img src="@Url.Content("~/images/ManageIco/list.png")" alt="Lista samochodów">
+                    <div class="caption">
+                        <h5>Lista samochodów</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="@Url.Action("ZapytanieONapraweSamochodu", "Naprawa")" class="thumbnail text-center">
+                    <img src="@Url.Content("~/images/ManageIco/Question_Coin_Icon_72.png")" alt="Zapytaj o naprawę">
+                    <div class="caption">
+                        <h5>Zapytaj o naprawę</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="@Url.Action("ListaNapraw", "Naprawa")" class="thumbnail text-center">
+                    <img src="@Url.Content("~/images/ManageIco/CarRepair-icon.png")" alt="Lista napraw">
+                    <div class="caption">
+                        <h5>Lista napraw</h5>
+                    </div>
+                </a>
+            </div>
+
+            @*<ul>
+                <li>
+                    <a href="@Url.Action("DaneUzytkownika", "Naprawa")">Uzupełnij profil</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("DaneSamochodu", "Naprawa")">Dodaj samochód</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ListaSamochodow", "Naprawa")">Przeglądaj listę swoich samochodów</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ZapytanieONapraweSamochodu", "Naprawa")">Zapytaj o naprawę</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ListaNapraw", "Naprawa")">Przeglądaj listę napraw</a>
+                </li>*@
+            @if (User.IsInRole("Administrator"))
+            {
+                <div class="col-lg-2">
+                    <a href="@Url.Action("Index", "Admin")" class="thumbnail text-center">
+                        <img src="@Url.Content("~/images/ManageIco/admin.png")" alt="Administrator">
+                        <div class="caption">
+                            <h5>Panel administratora</h5>
+                        </div>
+                    </a>
+                </div>
+                @*<li>
+                        <a href="@Url.Action("Index", "Admin")">Panel administratora</a>
+                    </li>*@
+            }
+        </div>
+        @*<li>*@
+        @if (Model.HasPassword)
+        {
+            <div class="row">
+                <div class="col-lg-2">
+                    <a href="@Url.Action("ChangePassword", "Manage")" class="thumbnail text-center">
+                        <img src="@Url.Content("~/images/ManageIco/system_config_rootpassword.png")" alt="Zmień hasło">
+                        <div class="caption">
+                            <h5>Zmień haslo</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            @*@Html.ActionLink("Zmień hasło", "ChangePassword")*@
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-lg-2">
+                    <a href="@Url.Action("SetPassword", "Manage")" class="thumbnail text-center">
+                        <img src="@Url.Content("~/images/ManageIco/icon_member_resend_pass.gif")" alt="...">
+                        <div class="caption">
+                            <h5>Utwórz hasło</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            @*@Html.ActionLink("Utwórz", "SetPassword")*@
+        }
+        @*</li>
+            </ul>*@
+
+    </div>
+</div>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+@*<div>
+    <h4>Zmień ustawienia konta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Hasło:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Zmień hasło", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Utwórz", "SetPassword")
+            }
+            ]
+        </dd>*@
+@*<dt>Logowania zewnętrzne:</dt>
+    <dd>
+        @Model.Logins.Count [
+        @Html.ActionLink("Zarządzaj", "ManageLogins") ]
+    </dd>*@
+@*
+    Numer telefonu może być używany jako drugi etap weryfikacji w systemie uwierzytelniania dwuetapowego.
+
+     Zobacz <a href="http://go.microsoft.com/fwlink/?LinkId=403804">ten artykuł</a>,
+        aby uzyskać szczegółowe informacje dotyczące konfigurowania tej aplikacji ASP.NET w celu obsługi uwierzytelniania dwuetapowego za pośrednictwem wiadomości SMS.
+
+     Po skonfigurowaniu uwierzytelniania dwuetapowego usuń komentarz z poniższego bloku
+*@
+@*
+    <dt>Numer telefonu:</dt>
+    <dd>
+        @(Model.PhoneNumber ?? "Brak") [
+        @if (Model.PhoneNumber != null)
+        {
+            @Html.ActionLink("Zmień", "AddPhoneNumber")
+            @: &nbsp;|&nbsp;
+            @Html.ActionLink("Usuń", "RemovePhoneNumber")
+        }
+        else
+        {
+            @Html.ActionLink("Dodaj", "AddPhoneNumber")
+        }
+        ]
+    </dd>
+*@
+@*<dt>Uwierzytelnianie dwuetapowe:</dt>
+    <dd>
+        <p>
+            Brak skonfigurowanych dostawców uwierzytelniania dwuetapowego. Zobacz <a href="http://go.microsoft.com/fwlink/?LinkId=403804">ten artykuł</a>,
+            aby uzyskać szczegółowe informacje dotyczące konfigurowania tej aplikacji ASP.NET w celu obsługi uwierzytelniania dwuetapowego.
+        </p>*@
+@*@if (Model.TwoFactor)
+    {
+        using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <text>Włączono
+            <input type="submit" value="Wyłącz" class="btn btn-link" />
+            </text>
+        }
+    }
+    else
+    {
+        using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <text>Wyłączono
+            <input type="submit" value="Włącz" class="btn btn-link" />
+            </text>
+        }
+    }*@
+@*</dd>
+        </dl>
+    </div>*@

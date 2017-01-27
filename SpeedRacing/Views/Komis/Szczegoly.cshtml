@@ -1,0 +1,178 @@
+﻿@model SpeedRacing.Models.Komis.KomisPojazd
+
+@{
+    ViewBag.Title = "Szczegoly";
+    Layout = "~/Views/Shared/_SpeedRacingLayout.cshtml";
+}
+
+
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <div class="row">
+            <div class="col-lg-12">
+                @if (!string.IsNullOrEmpty(@Model.Zdjecie1))
+                {
+                    <img src="@Url.Content("~/images/Komis/ZdjeciaSamochodow/" + @Model.Zdjecie1)" alt="@Model.Zdjecie1" height="200" width="300" class="thumbnail center-block" />
+                }
+                else
+                {
+                    <img src="@Url.Content("~/images/Komis/ZdjeciaSamochodow/not-available.jpg")" alt="Brak zdjęcia" height="200" width="300" />
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                @if (!string.IsNullOrEmpty(@Model.Zdjecie2))
+                {
+                    <img src="@Url.Content("~/images/Komis/ZdjeciaSamochodow/" + @Model.Zdjecie2)" alt="@Model.Zdjecie2" height="80" width="120" class="thumbnail center-block" />
+                }
+            </div>
+            <div class="col-lg-4">
+                @if (!string.IsNullOrEmpty(@Model.Zdjecie3))
+                {
+                    <img src="@Url.Content("~/images/Komis/ZdjeciaSamochodow/" + @Model.Zdjecie3)" alt="@Model.Zdjecie3" height="80" width="120" class="thumbnail center-block" />
+                }
+            </div>
+            <div class="col-lg-4">
+                @if (!string.IsNullOrEmpty(@Model.Zdjecie4))
+                {
+                    <img src="@Url.Content("~/images/Komis/ZdjeciaSamochodow/" + @Model.Zdjecie4)" alt="@Model.Zdjecie1" height="80" width="120" class="thumbnail center-block" />
+                }
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DataDodania)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataDodania)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataModyfikacji)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataModyfikacji)
+            </dd>
+
+            @if (@Model.Rabat > 0)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.CenaProponowana)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CenaProponowana)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Rabat)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Rabat)
+                </dd>
+            }
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CenaSprzedazy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CenaSprzedazy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Adres)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adres)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Marka)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marka)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Rok)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Rok)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Kilometry)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Kilometry)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TypNadwozia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TypNadwozia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SkrzyniaBiegow)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SkrzyniaBiegow)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">Dłuższy opis pojazdu</div>
+            <div class="panel-body">
+                @Model.Tresc
+            </div>
+        </div>
+
+        @if (@Model.Uwagi != "")
+        {
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Uwagi do pojazdu</h3>
+                </div>
+                <div class="panel-body">
+                    @Model.Uwagi
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<hr />

@@ -1,0 +1,264 @@
+﻿@model SpeedRacing.Models.Komis.KomisPojazd
+
+@{
+    ViewBag.Title = "Usuń";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuń pojazd</h2>
+
+<h3>czy jesteś pewien, że chcesz usunąć pojazd?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KomisKategoria.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KomisKategoria.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilometry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilometry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypNadwozia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypNadwozia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkrzyniaBiegow)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkrzyniaBiegow)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CenaProponowana)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CenaProponowana)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rabat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rabat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CenaSprzedazy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CenaSprzedazy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDodania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDodania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModyfikacji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModyfikacji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KrotkiOpis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KrotkiOpis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uwagi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uwagi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tresc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tresc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzySprzedany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzySprzedany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzyPoszukiwany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzyPoszukiwany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzyZarezerwowany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzyZarezerwowany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzyNaSprzedaz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzyNaSprzedaz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzyWycofany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzyWycofany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzyAktywny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzyAktywny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wyrozniony)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wyrozniony)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Promocja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Promocja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wyprzedaz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wyprzedaz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdjecie1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdjecie1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdjecie2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdjecie2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdjecie3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdjecie3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdjecie4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdjecie4)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-danger" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
+        </div>
+    }
+</div>

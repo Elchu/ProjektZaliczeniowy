@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Witamy na blogu SpeedRacing</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", false)
+    <script type="text/javascript" src=@Url.Content("~/Helpers/ckfinder/ckfinder.js")></script>
+    <script type="text/javascript" src=@Url.Content("~/Helpers/ckeditor/ckeditor.js")></script>
+
+
+</head>
+<body class="blog">
+
+    <div class="container">
+
+        <header class="naglowek">
+            <div class="row">
+                <a href="@Url.Content("~/")"><div class="col-lg-6"><img class="logo" src="~/images/logo.gif" alt="Alternate Text" /></div></a>
+                <div class="col-lg-6">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </header><!--Naglowek-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="@Url.Content("~/")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="@Url.Content("~/")">Strona główna <span class="sr-only">(current)</span></a></li>
+                                <li><a href="@Url.Action("Ofirmie", "SpeedRacing")">O firmie</a></li>
+                                <li><a href="@Url.Action("Index", "Blog")">Blog</a></li>
+                                <li><a href="@Url.Action("Index", "Sklep")">Sklep</a></li>
+                                <li class="dropdown">
+                                    <a href="@Url.Content("/Komis/Index")" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Komis<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="@Url.Content("/Komis/Skup")">Skup aut</a></li>
+                                        <li><a href="@Url.Content("/Komis/Index2")">Poszukuje</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="@Url.Content("/Komis/Index")">Przeglądaj</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="@Url.Action("Myjnia", "SpeedRacing")">Myjnia</a></li>
+                                <li><a href="@Url.Action("Oferta", "SpeedRacing")">Oferta</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#myModal">Kontakt</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div><!--Menu-->
+        @RenderBody()
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="partnerzyFooter">
+                        <h4>Partnerzy</h4>
+                        <ul>
+                            <li><a href="#">Orlen</a></li>
+                            <li><a href="#">BPH</a></li>
+                            <li><a href="#">Otomoto</a></li>
+                            <li><a href="#">Gumtree</a></li>
+                            <li><a href="#">Onet</a></li>
+                            <li><a href="#">Interia</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div>
+                        <h4>Skontaktuj się</h4>
+                        <div class="media">
+                            <a class="media-left" href="#">
+                                <img src="~/images/socialmedia/facebook.png" width="32" height="32" alt="...">
+                            </a>
+                            <div class="media-body">
+                                <p><a href="#">Facebook</a></p>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <a class="media-left" href="#">
+                                <img src="~/images/socialmedia/linkedin.png" width="32" height="32" alt="...">
+                            </a>
+                            <div class="media-body">
+                                <p><a href="#">Linkedin</a></p>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <a class="media-left" href="#">
+                                <img src="~/images/socialmedia/twitter.png" width="32" height="32" alt="...">
+                            </a>
+                            <div class="media-body">
+                                <p><a href="#">Twitter</a></p>
+                            </div>
+                            <div class="media">
+                                <a class="media-left" href="#">
+                                    <img src="~/images/socialmedia/youtube.png" width="32" height="32" alt="...">
+                                </a>
+                                <div class="media-body">
+                                    <p><a href="#">Youtube</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3">
+                    <div class="godzinyFooter">
+                        <h4>Godziny otwarcia</h4>
+                        <ul>
+                            <li>Poniedziałek 8.00 - 17.00</li>
+                            <li>Wtorek 8.00 - 17.00</li>
+                            <li>Środa 8.00 - 17.00</li>
+                            <li>Czwartek 8.00 - 17.00</li>
+                            <li>Piątek 8.00 - 17.00</li>
+                            <li>Sobota 9.00 - 11.00</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3">
+                    <div class="adres">
+                        <h4>Lokalizacja</h4>
+                        <address>
+                            <strong><span>Speed</span>Racing</strong><br>
+                            Długa 123<br>
+                            32-222 Kraków<br>
+                            <abbr title="Phone">P:</abbr> (123) 456-7890
+                        </address>
+
+                        <address>
+                            <strong>E-mail</strong><br>
+                            <a href="mailto:#">speedracingwsb@gmail.com</a>
+                        </address>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="opisFooter">
+                <b>SpeedRacing</b> - projekt na zaliczenie SPP (Aplikacje internetowe) 2014/2015
+            </div>
+
+        </footer><!--END FOOTER-->
+        <!-- KONTAKT Modal -->
+        @using (Html.BeginForm("Index", "SpeedRacing", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Kontakt</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="imie">Imię</label>
+                                            <input type="text" class="form-control" id="imie" name="imie" placeholder="Podaj imię">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">E-mail</label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Podaj E-mail">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telefon">Telefon</label>
+                                            <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Podaj telefon">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="temat">Temat</label>
+                                            <input type="text" class="form-control" id="temat" name="temat" placeholder="Podaj temat">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="wiadomosc">Wiadomość</label>
+                                            <textarea class="form-control" rows="5" name="wiadomosc" placeholder="Wpisz wiadomość"></textarea>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="adres">
+                                        <h4>Lokalizacja</h4>
+                                        <address>
+                                            <strong><span>Speed</span>Racing</strong><br>
+                                            Długa 123<br>
+                                            32-222 Kraków<br>
+                                            <abbr title="Phone">P:</abbr> (123) 456-7890
+                                        </address>
+
+                                        <address>
+                                            <strong>E-mail</strong><br>
+                                            <a href="mailto:#">speedracingwsb@gmail.com</a>
+                                        </address>
+
+                                        <div>
+                                            <iframe width="225" height="160" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                                                    src="https://www.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Krak%C3%B3w&amp;aq=&amp;sll=52.025459,19.204102&amp;sspn=9.212032,19.753418&amp;ie=UTF8&amp;hq=&amp;hnear=Krak%C3%B3w,+Wojew%C3%B3dztwo+ma%C5%82opolskie&amp;ll=50.06465,19.94498&amp;spn=0.00938,0.01929&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+                                            <br /><small>
+                                                <a href="https://www.google.pl/maps?f=q&amp;source=embed&amp;hl=pl&amp;geocode=&amp;q=Krak%C3%B3w&amp;aq=&amp;sll=52.025459,19.204102&amp;sspn=9.212032,19.753418&amp;ie=UTF8&amp;hq=&amp;hnear=Krak%C3%B3w,+Wojew%C3%B3dztwo+ma%C5%82opolskie&amp;ll=50.06465,19.94498&amp;spn=0.00938,0.01929&amp;t=m&amp;z=14"
+                                                   style="color:#0000FF;text-align:left">Wyświetl większą mapę</a>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                            @*<button type="button" class="btn btn-primary">Wyślij</button>*@
+                            <input type="submit" value="Wyślij" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div><!--KONIEC KONTAKT MODAL-->
+        }
+
+    </div><!--container-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/bundles/MojeSkrypty")
+
+
+    <script type="text/javascript">
+        var editor = CKEDITOR.instances['editor1'];
+        if (editor) { editor.destroy(true); }
+        CKEDITOR.replace('Tresc', {
+            enterMode: CKEDITOR.ENTER_BR,
+        });
+
+        CKFinder.setupCKEditor(null, '@Url.Content("~/Helpers/ckfinder/")');
+    </script>
+</body>
+</html>

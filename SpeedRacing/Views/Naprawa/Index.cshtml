@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SpeedRacingLayout.cshtml";
+}
+
+<h2>Wyślij zapytanie o naprawę</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <table>
+        <tr>
+            <td>Wybierz model:</td>
+            <td>@Html.DropDownList("Marka")</td>
+        </tr>
+        <tr>
+            <td>Wybierz model:</td>
+            <td>@Html.DropDownList("Model")</td>
+        </tr>
+        <tr>
+            <td>Wybierz pojemność:</td>
+            <td>@Html.DropDownList("Pojemnosc")</td>
+        </tr>
+        <tr>
+            <td>Wybierz rodzaj nadwozia:</td>
+            <td>@Html.DropDownList("RodzajNadwozia")</td>
+        </tr>
+        <tr>
+            <td>Wybierz rodzaj paliwa:</td>
+            <td>@Html.DropDownList("RodzajPaliwa")</td>
+        </tr>
+        <tr>
+            <td>Wybierz rok produkcji:</td>
+            <td>@Html.DropDownList("RokProdukcji")</td>
+        </tr>
+        <tr>
+            <td>Opis usterki</td>
+            <td>@Html.TextArea("OpisUsterki")</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><input type="submit" value="Wyślij" class="btn btn-success" /></td>
+        </tr>
+    </table>
+    
+}

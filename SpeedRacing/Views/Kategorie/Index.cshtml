@@ -1,0 +1,84 @@
+﻿@model System.Collections.Generic.IEnumerable<SpeedRacing.Models.Blog.Kategorie>
+
+@{
+    ViewBag.Title = "Kategorie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista kategorii</h2>
+
+<p>
+    @Html.ActionLink("Utwórz nowy", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.KategorieId }) |
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.KategorieId }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.KategorieId })
+            </td>
+        </tr>
+    }
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nazwa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrzyjaznaNazwa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Opis)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataUtworzenia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CzyOpublikowany)
+                </th>
+                <th></th>
+            </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nazwa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrzyjaznaNazwa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataUtworzenia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CzyOpublikowany)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.KategorieId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.KategorieId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.KategorieId })
+                </td>
+            </tr>
+        }*@
+
+</table>

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SpeedRacing.Models.Blog.Komentarze>
+
+@{
+    ViewBag.Title = "Lista komenatrzy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista komentarzy</h2>
+
+<p>
+    @Html.ActionLink("Utwórz nowy", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-hover">
+    
+    <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Post.Tytul)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tresc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPublikacji)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uzytkownik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nick)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CzyOpublikowany)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Post.Tytul)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tresc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataPublikacji)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uzytkownik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nick)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CzyOpublikowany)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.KomentarzeId })" class="btn btn-default" title="Edytuj"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                    <a href="@Url.Action("Details", new { id = item.KomentarzeId })" class="btn btn-default" title="Szczegóły"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                    <a href="@Url.Action("Delete", new { id = item.KomentarzeId })" class="btn btn-default" title="Usuń"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                </td>
+            </tr>
+        }
+
+</table>

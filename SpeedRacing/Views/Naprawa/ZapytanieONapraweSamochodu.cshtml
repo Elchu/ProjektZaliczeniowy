@@ -1,0 +1,88 @@
+﻿@model IEnumerable<SpeedRacing.Models.Samochod>
+
+@{
+    ViewBag.Title = "Zapytanie o naprawę";
+    Layout = "~/Views/Shared/_SpeedRacingLayout.cshtml";
+}
+
+<h2>Zapytanie o naprawę</h2>
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success" role="alert">@ViewBag.Success</div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            Marka
+        </th>
+        <th>
+            Model
+        </th>
+        <th>
+            Pojemność
+        </th>
+        <th>
+            Typ nadwozia
+        </th>
+        <th>
+            Rodzaj paliwa
+        </th>
+        <th>
+            Rok produkcji
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NrRejestracyjny)
+        </th>
+
+        <th>Wybierz samochód</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marka.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pojemnosc.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RodzajNadwozia.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RodzajPaliwa.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RokProdukcji.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrRejestracyjny)
+            </td>
+            <td>
+                @Html.RadioButton("WybranySamochod", item.SamochodId, htmlAttributes: new { @value = item.SamochodId })                
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="8">
+            @Html.TextArea("OpisUsterki", htmlAttributes: new { @cols="40", @rows="5"})
+        </td>
+    </tr>
+    <tr>
+        <td colspan="8">
+            <input type="submit" value="Wyślij" class="btn btn-success" />
+        </td> 
+    </tr>
+
+</table>
+
+}

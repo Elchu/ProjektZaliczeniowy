@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SpeedRacing.Models.Komis.KomisKategoria>
+
+@{
+    ViewBag.Title = "Komis samochodowy";
+    Layout = "~/Views/Shared/_SpeedRacingLayout.cshtml";
+}
+
+<h2>Wybierz kategorię</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="ca-menu">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        
+                        <a href="@Url.Action("Przegladaj", "Komis", new { id = item.KomisKategoriaId })">
+                            <span class="glyphicon glyphicon-erase ca-icon"></span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">@item.Nazwa</h2>
+                                <h3 class="ca-sub">@item.Opis</h3>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+
+        </div>
+    </div>
+</div>

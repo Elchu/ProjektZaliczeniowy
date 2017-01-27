@@ -1,0 +1,48 @@
+﻿@model SpeedRacing.Models.Model
+
+@{
+    ViewBag.Title = "Usuń";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuń model</h2>
+
+<h3>Czy jesteś pewien, że chcesz usunąć model?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Marka")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marka.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Model")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzyAktywny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzyAktywny)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
+        </div>
+    }
+</div>

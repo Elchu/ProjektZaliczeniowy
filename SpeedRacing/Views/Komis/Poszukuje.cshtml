@@ -1,0 +1,28 @@
+﻿@model IEnumerable<SpeedRacing.Models.Komis.KomisPojazd>
+@{
+    ViewBag.Title = "Poszukuje";
+    Layout = "~/Views/Shared/_SpeedRacingLayout.cshtml";
+}
+
+<h2>Komis samochodowy - poszukiwane</h2>
+<br />
+
+<div class="container">
+
+    <div class="row">
+        <ul id="movieposters">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <img src="~/images/Komis/ZdjeciaSamochodow/@item.Zdjecie1" alt="@item.Marka - @item.Model" />
+                    <div class="movieinfo">
+                        <h3>@item.Marka - @item.Model</h3>
+                        <p>@item.KrotkiOpis</p>
+                        <a href="@Url.Action("Szczegoly", "Komis", new { id = item.KomisPojazdId })" title="@item.Marka - @item.Model">Zobacz</a>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+

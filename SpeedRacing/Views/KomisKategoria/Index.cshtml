@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SpeedRacing.Models.Komis.KomisKategoria>
+
+@{
+    ViewBag.Title = "Dodaj";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dodaj kategorię</h2>
+
+<p>
+    @Html.ActionLink("Dodaj kategorię", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CzyAktywny)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CzyAktywny)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.KomisKategoriaId })" class="btn btn-default" title="Edytuj"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+            <a href="@Url.Action("Details", new { id = item.KomisKategoriaId })" class="btn btn-default" title="Szczegóły"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+            <a href="@Url.Action("Delete", new { id = item.KomisKategoriaId })" class="btn btn-default" title="Usuń"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+        </td>
+    </tr>
+}
+
+</table>

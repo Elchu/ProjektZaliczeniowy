@@ -1,0 +1,48 @@
+﻿@model PagedList.IPagedList<SpeedRacing.Models.Blog.Post>
+
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Posty";
+    Layout = "~/Views/Shared/_SpeedRacingLayout.cshtml";
+}
+
+@section styles
+{
+    <link href="~/Content/StoryBox/animate.css" rel="stylesheet" />
+    <link href="~/Content/StoryBox/story-box-zen.css" rel="stylesheet" />
+}
+
+<h3><b>BLOG</b></h3>
+@foreach (var post in Model)
+{
+    <div class="row post" data-sb="bounceInLeft" data-sb-hide="fadeOutUp">
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="@Url.Content("~/images/Blog/")@post.Zdjecie" class="thumbnail img-responsive" alt="Alternate Text" />
+            </div>
+            <div class="col-lg-8">
+                <h3 class="tytul"><a href="@Url.Action("Szczegoly","Blog", new{ id = post.PostyId})">@post.Tytul</a></h3>
+                <p>@post.KrotkiOpis</p>
+                <a href="@Url.Action("Szczegoly","Blog", new{ id = post.PostyId})" class="btn btn-primary btn-sm pull-right"> Czytaj więcej </a>
+            </div>
+        </div>
+        <div class="row szczegoly">
+            <div class="col-lg-12">
+                <ul>
+                    <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>@post.DataPublikacji</li>
+                    <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span>@post.Autor</li>
+                    <li><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>@post.Komentarze.Count komentarzy</li>
+                    <li><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><a href="@Url.Action("Szczegoly","Blog", new{ id = post.PostyId})"> zobacz więcej</a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!--KONIEC POST-->
+}
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.Count() }))
+
+@section scripts
+{
+    <script src="~/Scripts/StoryBox/story-box.min.js"></script>
+
+}

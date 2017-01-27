@@ -1,0 +1,16 @@
+namespace SpeedRacing.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class DeleteUIhintHTML : DbMigration
+    {
+        public override void Up()
+        {
+        }
+        
+        public override void Down()
+        {
+        }
+    }
+}

@@ -1,0 +1,110 @@
+﻿@model IEnumerable<SpeedRacing.ViewModel.DaneNaprawy>
+
+@{
+    ViewBag.Title = "Lista napraw";
+    Layout = "~/Views/Shared/_SpeedRacingLayout.cshtml";
+}
+
+<h2>Lista napraw</h2>
+<hr/>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <dl class="dl-horizontal">
+                @foreach (var item in Model)
+                {
+                    <dt>
+                        Nazwisko klienta:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.NazwiskoKlienta)
+                    </dd>
+                    <dt>
+                        Dane samochodu:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.DaneSamochodu)
+                    </dd>
+                    <dt>
+                        Dane pracownika:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.DanePracownika)
+                    </dd>
+                    <dt>
+                        Data rozpoczęcia:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.DataRozpoczecia)
+                    </dd>
+                    <dt>
+                        Data zakończenia:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.DataZakonczenia)
+                    </dd>
+                    <dt>
+                        Opis usterki:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.OpisUsterki)
+                    </dd>
+                    <dt>
+                        Opis naprawy:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.OpisNaprawy)
+                    </dd>
+                    <dt>
+                        Przewidywana cena:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.Cena) zł
+                    </dd>
+                    if (item.CzyNaprawiac)
+                    {
+                        <dt>
+                            Czy naprawiać:
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(modelitem => item.CzyNaprawiac)
+                        </dd>
+                        <dt>
+                            Potwierdzenie:
+                        </dt>
+                        <dd>
+                            <input type="submit" value="Zatwierdź" class="btn btn-success btn-sm" disabled="disabled" />
+                        </dd>
+                    }
+                    else
+                    {
+                        <dt>
+                            Czy naprawiać:
+                        </dt>
+                        <dd>
+                            @Html.CheckBox("CzyNaprawiac")
+                        </dd>
+                        <dt>
+                            Potwierdzenie:
+                        </dt>
+                        <dd>
+                            @Html.Hidden("DaneNaprawyId", item.DaneNaprawyId)
+                            <input type="submit" value="Zatwierdź" class="btn btn-success btn-sm" />
+                        </dd>
+                    }
+                    <dt>
+                        Naprawiono:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.CzyNaprawiono)
+                    </dd>
+                    <hr/>
+                }
+            </dl>
+        </div>
+    </div>
+}

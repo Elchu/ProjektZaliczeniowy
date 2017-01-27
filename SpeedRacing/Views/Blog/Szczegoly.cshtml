@@ -1,0 +1,44 @@
+﻿@model SpeedRacing.Models.Blog.Post
+
+@{
+    ViewBag.Title = "Szczegoly";
+    Layout = "~/Views/Shared/_SpeedRacingLayout.cshtml";
+}
+
+<div>
+    <h4>Blog</h4>
+    <hr />
+
+    <h1>@Model.Tytul</h1>
+
+
+    @Html.Raw(@Model.Tresc)
+
+    <h3>Komentarze</h3>
+    @foreach (var komentarz in @Model.Komentarze)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">Autor: @komentarz.Nick | Data wysłania: @komentarz.DataPublikacji</div>
+            <div class="panel-body">
+                @komentarz.Tresc
+            </div>
+        </div>
+    }
+
+    <h4>Dodaj komentarz</h4>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-warning" role="alert">@ViewBag.Error</div>
+    }
+
+
+    @using (Html.BeginForm("DodajKomentarz", "Blog", FormMethod.Post))
+    {
+        <input type="text" name="Nick" class="form-control" placeholder="Wpisz nick" aria-describedby="sizing-addon2">
+        <textarea name="Wiadomosc" class="form-control" placeholder="Treść wiadomości" aria-describedby="sizing-addon2"></textarea>
+        <input name="PostyId" value="@Model.PostyId" hidden="hidden" />
+        <p><input class="btn btn-default" type="submit" value="Wyślij" /></p>
+    }
+</div>
+

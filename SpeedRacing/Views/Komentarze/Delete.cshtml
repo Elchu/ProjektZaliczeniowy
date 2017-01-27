@@ -1,0 +1,80 @@
+﻿@model SpeedRacing.Models.Blog.Komentarze
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuń komentarz</h2>
+
+<h3>Czy jesteś pewien, że chcesz usunąć ten komentarz?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Post.Tytul)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post.Tytul)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tresc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tresc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPublikacji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPublikacji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Uzytkownik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uzytkownik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nick)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nick)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzyOpublikowany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzyOpublikowany)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-danger" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
+        </div>
+    }
+</div>

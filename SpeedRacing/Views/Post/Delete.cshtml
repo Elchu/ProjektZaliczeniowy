@@ -1,0 +1,112 @@
+﻿@model SpeedRacing.Models.Blog.Post
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuń post</h2>
+
+<h3>Czy jesteś pewien, że chcesz usunąć ten post?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategorie.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategorie.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tytul)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tytul)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KrotkiOpis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KrotkiOpis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tresc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tresc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrzyjazdyOpis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrzyjazdyOpis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPublikacji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPublikacji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Autor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModyfikacji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModyfikacji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CzyOpublikowany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CzyOpublikowany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdjecie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdjecie)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-danger" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
+        </div>
+    }
+</div>
